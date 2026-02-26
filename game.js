@@ -380,7 +380,7 @@ function draw() {
         ctx.textAlign = 'center';
         ctx.fillText('ПАУЗА', FIELD_WIDTH / 2, FIELD_HEIGHT / 2);
         ctx.font = '24px sans-serif';
-        ctx.fillText('Escape — продолжить', FIELD_WIDTH / 2, FIELD_HEIGHT / 2 + 50);
+        ctx.fillText('Escape - продолжить', FIELD_WIDTH / 2, FIELD_HEIGHT / 2 + 50);
         ctx.textAlign = 'left';
         return;
     }
@@ -496,6 +496,7 @@ function draw() {
     }
 }
 
+
 function updateUI() {
     if (!gameState) return;
     const r = gameState.rocket;
@@ -518,6 +519,7 @@ function gameLoop(now) {
     animationId = requestAnimationFrame(gameLoop);
 }
 
+updateUI();
 
 if (paused) {
     ctx.fillStyle = 'rbga(0, 0, 0, 0.6)';
@@ -527,14 +529,18 @@ if (paused) {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('ПАУЗА', FIELD_WIDTH / 2, FIELD_HEIGHT / 2 + 50);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = alphabetic;
     ctx.font = '20px sans-serif';
 }
 
 
 
 
-
-
+document.addEventListener('fullscreenchange', updageFullscreenButton);
+document.addEventListener('webkitfullscreenelement', updateFullScreenButton)
+document.addEventListener('mozfullscreenchange', updateFullScreenButton)
+document.addEventListener('msFullscreenChange', updateFullScreenButton)
 
 
 
