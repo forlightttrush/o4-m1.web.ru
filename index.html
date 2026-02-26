@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космическая игра</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="start-screen" class="screen active">
+        <div class="start-panel">
+            <h1>Космическая игра</h1>
+            <label for="player-name">Введите имя: </label>
+            <input type="text" id="player-name" placeholder="Ваше имя" maxlength="50" autocomplete="off">
+            <div class='screen-mode'>
+                <span>Режима экрана</span>
+                <label><input type='radio' name="screen-mode" value="window" id="screen-window" checked>Оконный</label>
+                <label><input type='radio' name="screen-mode" value="full" id="screen-full">Полноэкранный</label>
+            </div>
+            <button id="start-btn" disabled>Начать игру</button>
+        </div>
+    </div>
+    
+    <div id="game-screen" class="screen">
+        <div class="game wrapper">
+            <canvas id="game-canvas" width="800" height="600"></canvas>
+            <div class="game-ui">
+                <span class="ui-item">Время: <span id="timer">00:00</span></span>
+                <span class="ui-item">Монеты: <span id="coins">0</span></span>
+                <span class="ui-item">Боезапас: <span id="ammo">30</span></span>
+                <span class="ui-item" id="shield-hint"></span>
+                <div class="health-wrap">
+                    <span class="ui-item">Здоровье: <span id="health-value">100</span></span>
+                    <div class="health-bar">
+                        <div id="health-progress" class="health-fill"></div>
+                    </div>
+                    <button type="button" id="fullscreen-btn" class="fullscreen-btn" title="Переключить полноэкранный режим"> Полный экран</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gameover-screen" class="screen">
+        <div class="start-panel">
+            <h2>Игра окончена</h2>
+            <p>Время: <span id="final-time">00:00</span></p>
+            <button id="restart-btn">Заново</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
